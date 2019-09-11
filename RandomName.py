@@ -6,12 +6,6 @@ KREWES = {
 	'endymion': ['Grace', 'Nahi', 'Derek', 'Jun Tao', 'Connor', 'Jason', 'Tammy', 'Albert', 'Kazi', 'Derek', 'Brandon', 'Kenneth', 'Lauren', 'Biraj', 'Jeff', 'Jackson', 'Taejoon', 'Kevin', 'Jude', 'Sophie', 'Henry', 'Coby', 'Manfred', 'Leia', 'Ahmed', 'Winston']
 }
 
-ref = {
-  0: 'orpheus',
-  1: 'rex',
-  2: 'endymion'
-}
 
-num = random.randrange(3)
-team = KREWES.get(ref.get(num))
-print (team[random.randrange(len(team))])
+team = input("What team?")
+print (random.choice(KREWES.team))
