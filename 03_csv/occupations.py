@@ -1,23 +1,25 @@
 import csv
 import random
 
-file = "occupations.csv"
+fil = "occupations.csv"
 
 ref = {}
 
 with open(file, 'r') as csvfile:
   reader = csv.reader(csvfile)
-  reader.next()
+  go = False
   for row in reader:
-    ref[row[0]] = row[1]
+    if go:
+      ref[row[0]] = row[1]
+    else:
+      go = True
     
-file.close()
 
 def weight(occ):
-  num = random() * 100
+  num = random.random() * 100
   count = 0
   for x in occ:
-    count = count + occ[x]
-    if count > num:
-      return x
-  return weight(occ)
+    count = count + float(occ[x])
+    if count > num and x != "Total":
+      return (x)
+  return (weight(occ))
