@@ -1,4 +1,5 @@
 import csv
+import random
 
 file = "occupations.csv"
 
@@ -12,3 +13,11 @@ with open(file, 'r') as csvfile:
     
 file.close()
 
+def weight(occ):
+  num = random() * 100
+  count = 0
+  for x in occ:
+    count = count + occ[x]
+    if count > num:
+      return x
+  return weight(occ)
