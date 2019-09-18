@@ -8,8 +8,12 @@ def hello_world():
     return "hablo queso!"
 
 @app.route("/index")
+def ind():
+    return "Main page"
+
+@app.route("/page")
 def dummy():
-    return "This works"
+    return "Lorem ipsum doloret"
 
 if __name__ == "__main__":
     app.debug = True
