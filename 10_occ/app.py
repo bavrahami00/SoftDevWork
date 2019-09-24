@@ -15,11 +15,21 @@ with open(file, 'r') as csvfile:
     else:
       go = True
 
+def weight(occ):
+  num = random.random() * 100
+  count = 0
+  for x in occ:
+    count = count + float(occ[x])
+    if count > num and x != "Total":
+      return (x)
+  return (weight(occ))
+
+rand = weight(ref)
+
 
 @app.route("/occupyflaskst")
-
-def hello_world():
-    return render_template('occ.html',dict=ref)
+def occ():
+    return render_template('occ.html',dict=ref,chose=rand)
 
 if __name__ == "__main__":
     app.debug = True

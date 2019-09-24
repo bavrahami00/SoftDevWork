@@ -6,6 +6,22 @@
   </title>
 </head>
 <body>
-
+  <p>Team Name: BananaDuck</p>
+  <p>Team Roster: Benjamin Avrahami, William Lin</p>
+  <br><br>
+  <h2>Randomly chosen occupation: {{chose}}</h2>
+  <br>
+  <table>
+    <tr>
+      <th>Occupation</th>
+      <th>Percentage</th>
+    </tr>
+    {% for i in dict %}
+    <tr>
+      <td>{{i}}</td>
+      <td>{{dict[i]}}</td>
+    </tr>
+    {% endfor %}
+  </table>
 </body>
 </html>
