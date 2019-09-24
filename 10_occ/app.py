@@ -24,11 +24,11 @@ def weight(occ):
       return (x)
   return (weight(occ))
 
-rand = weight(ref)
 
 
 @app.route("/occupyflaskst")
 def occ():
+    rand = weight(ref)
     return render_template('occ.html',dict=ref,chose=rand)
 
 if __name__ == "__main__":
