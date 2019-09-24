@@ -1,3 +1,9 @@
+#Benjamin Avrahami, William Lin
+#SoftDev1 pd 2
+#K10 - Jinja Tuning
+#2019-09-24
+
+
 from flask import Flask, render_template
 import csv
 import random
