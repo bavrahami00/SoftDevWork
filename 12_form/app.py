@@ -1,7 +1,7 @@
 #Saad Bhuiyan and Benjamin Avrahami
 #SoftDev1 pd2
-#K12 -- Using Python, Flask, Jinja2, and HTML to create a form and custom response.
-#2019-09-26 
+#K12 -- Echo Echo Echo 
+#2019-09-27 
 
 from flask import Flask, render_template, request
 app = Flask(__name__)
@@ -9,7 +9,7 @@ app = Flask(__name__)
 teamName = "Team Puppy Adoption"
 teamMembers = "Saad Bhuiyan and Benjamin Avrahami"
 
-@app.route("/form")
+@app.route("/")
 def form():
     print(app)
     return render_template("form.html", 
@@ -36,6 +36,7 @@ def authenticate():
     return render_template("response.html", 
                             teamName = teamName,
                             teamMembers = teamMembers,
+                            type = request.method,
                             name = request.args['name'],
                             donation = request.args['donation']
     )
