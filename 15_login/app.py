@@ -12,31 +12,25 @@ app.secret_key = key.get_key()
 @app.route("/") #assign following fxn to run when root route requested
 def hello_world():
     print(__name__)
-    session["user"] = "Gold"
-    session["pass"] = "Potatoes"
-    print (session)
     return render_template('loginpage.html')
 
 @app.route("/auth")
 def verify():
-    session["username"] = request.cookies.get("username")
-    session["password"] = request.cookies.get("password")
+    session["username"] = "Gold"
+    session["password"] = "Potatoes"
+    session["user"] = request.args["username"]
+    session["pass"] = request.args["password"]
     print (session["user"])
     print (session["pass"])
-    print (session["username"])
-    print (session["password"])
-    print (request.cookies.get("username"))
-    print (request.cookies.get("password"))
-    print (request.args["username"])
-    print (request.args["password"])
     if session["user"] == session["username"] and session["pass"] == session["password"]:
-        return redirect(url_for(welcome()))
+        return redirect(url_for("welcome"))
     else:
         return "No"
 
 @app.route("/home")
 def welcome():
-    print ("Welcome")
+    return "Welcome"
+
 
 if __name__ == "__main__":
     app.debug = True
