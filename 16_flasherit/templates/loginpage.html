@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-
+{% extends "template.html" %}
 <!--
      login page html file
      David "Snake" Wang and Benjamin Avrahami, pd2
 -->
 
-<html lang="en">
+<html>
   <head>
-    <meta charset="utf-8"/>
     <title>
-      Login
-	</title>
+      {% block header %}Login{% endblock %}
+    </title>
   </head>
 
   <body>
+    {% block body %}
     <form action = "/auth">
       Enter your username:<br>
       <input type="text" name="username"><br>
@@ -21,5 +21,6 @@
       <input type="text" name="password"><br>
       <input type="submit" value="Submit">
     </form>
+    {% endblock %}
   </body>
 </html>

@@ -1,15 +1,18 @@
 <!DOCTYPE html>
+{% extends "template.html" %}
 <html>
   <head>
     <title>
-      Welcome!
+      {% block header %}Welcome!{% endblock %}
     </title>
   </head>
   <body>
+    {% block body %}
     <form action="/logout">
       <input type="submit" name="logout" value="logout">
     </form>
     <br><br>
     <h1>Welcome {{u}}!</h1>
+    {% endblock %}
   </body>
 </html>
