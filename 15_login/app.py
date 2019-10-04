@@ -9,19 +9,32 @@ app = Flask(__name__) #create instance of class Flask
 
 app.secret_key = key.get_key()
 
+
 @app.route("/") #assign following fxn to run when root route requested
 def hello_world():
-    print(__name__)
+    session["username"] = "Gold"
+    session["password"] = "Potatoes"
+    if "user" in session:
+        if session["user"] == session["username"] and session["pass"] == session["password"]:
+            return redirect(url_for("welcome")) 
+    return redirect(url_for("log"))
+
+@app.route("/login")
+def log():
     return render_template('loginpage.html')
+
+@app.route("/logout")
+def ex():
+    session.pop("user")
+    session.pop("pass")
+    return redirect(url_for("log"))
 
 @app.route("/auth")
 def verify():
-    session["username"] = "Gold"
-    session["password"] = "Potatoes"
+    #session["username"] = "Gold"
+    #session["password"] = "Potatoes"
     session["user"] = request.args["username"]
     session["pass"] = request.args["password"]
-    print (session["user"])
-    print (session["pass"])
     if session["user"] == session["username"] and session["pass"] == session["password"]:
         return redirect(url_for("welcome"))
     else:
@@ -29,7 +42,7 @@ def verify():
 
 @app.route("/home")
 def welcome():
-    return "Welcome"
+    return render_template("well.html",u=session["user"])
 
 
 if __name__ == "__main__":
