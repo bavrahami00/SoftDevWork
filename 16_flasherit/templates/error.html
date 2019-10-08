@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% extends "template.html" %}
+<html>
+  <head>
+    <title>
+      {% block title %}You have an error{% endblock %}
+    </title>
+  </head>
+  <body>
+      {% block body %}
+      Either your username or password is wrong. Try again.
+      {% endblock %}
+  </body>
+</html>

@@ -5,42 +5,40 @@
 
 from flask import Flask, render_template, request, session, redirect, url_for
 from utl import key
-app = Flask(__name__) #create instance of class Flask
+app = Flask(__name__)
 
 app.secret_key = key.get_key()
 
 
-@app.route("/") #assign following fxn to run when root route requested
+@app.route("/") #root route
 def hello_world():
-    session["username"] = "Gold"
-    session["password"] = "Potatoes"
+    session["username"] = "Gold" #hardcoded username
+    session["password"] = "Potatoes" #hardcoded password
     if "user" in session:
-        if session["user"] == session["username"] and session["pass"] == session["password"]:
+        if session["user"] == session["username"] and session["pass"] == session["password"]: #checks whether correct login information is stored
             return redirect(url_for("welcome")) 
     return redirect(url_for("log"))
 
-@app.route("/login")
+@app.route("/login") #login page
 def log():
     return render_template('loginpage.html')
 
-@app.route("/logout")
+@app.route("/logout") #logout page
 def ex():
     session.pop("user")
     session.pop("pass")
     return redirect(url_for("log"))
 
-@app.route("/auth")
+@app.route("/auth") #page to check login
 def verify():
-    #session["username"] = "Gold"
-    #session["password"] = "Potatoes"
     session["user"] = request.args["username"]
     session["pass"] = request.args["password"]
-    if session["user"] == session["username"] and session["pass"] == session["password"]:
+    if session["user"] == session["username"] and session["pass"] == session["password"]: #checks whether the login is correct
         return redirect(url_for("welcome"))
     else:
-        return "Either the username or password is wrong"
+        return render_template("error.html")
 
-@app.route("/home")
+@app.route("/home") #home/welcome page
 def welcome():
     return render_template("well.html",u=session["user"])
 
