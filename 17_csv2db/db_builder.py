@@ -14,11 +14,25 @@ c = db.cursor()               #facilitate db ops
 
 #==========================================================
 
-# < < < INSERT YOUR POPULATE-THE-DB CODE HERE > > >
+c.execute("CREATE TABLE courses (code TEXT, mark INTEGER, id INTEGER)")
+
+with open("data/courses.csv", 'r') as csvfile:
+  reader = csv.DictReader(csvfile)
+  for row in reader:
+    command = "INSERT INTO courses VALUES ('" + row["code"] + "', " + row["mark"] + ", " + row["id"] + ")"
+    c.execute(command)
 
 
-command = ""          # test SQL stmt in sqlite3 shell, save as string
-c.execute(command)    # run SQL statement
+#==========================================================
+
+c.execute("CREATE TABLE students (name TEXT, age INTEGER, id INTEGER)")
+
+with open("data/students.csv", 'r') as csvfile:
+  reader = csv.DictReader(csvfile)
+  for row in reader:
+    command = "INSERT INTO students VALUES ('" + row["name"] + "', " + row["age"] + ", " + row["id"] + ")"
+    c.execute(command)
+  
 
 #==========================================================
 
