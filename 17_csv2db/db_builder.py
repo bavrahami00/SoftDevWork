@@ -1,4 +1,4 @@
-#benjamin Avrahami
+#Benjamin Avrahami
 #SoftDev  Pd 2
 #K17 :: SQLITE3 BASICS
 #Oct 10, 2019
