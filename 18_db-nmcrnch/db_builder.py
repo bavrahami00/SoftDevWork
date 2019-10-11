@@ -33,10 +33,6 @@ with open("data/students.csv", 'r') as csvfile:
     command = "INSERT INTO students VALUES ('" + row["name"] + "', " + row["age"] + ", " + row["id"] + ")"
     c.execute(command)
 
-q = "SELECT name, students.id, mark FROM students, courses WHERE students.id = courses.id;"
-foo = c.execute(q)
-for bar in foo:
-    print (bar)
 
 #==========================================================
 
