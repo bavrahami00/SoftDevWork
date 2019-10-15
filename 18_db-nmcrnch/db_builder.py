@@ -13,23 +13,25 @@ db = sqlite3.connect(DB_FILE) #open if file exists, otherwise create
 c = db.cursor()               #facilitate db ops
 
 #==========================================================
-
+#courses table
 c.execute("CREATE TABLE courses (code TEXT, mark INTEGER, id INTEGER)")
 
 with open("data/courses.csv", 'r') as csvfile:
   reader = csv.DictReader(csvfile)
   for row in reader:
+    #put in values for the table: code, mark, id
     command = "INSERT INTO courses VALUES ('" + row["code"] + "', " + row["mark"] + ", " + row["id"] + ")"
     c.execute(command)
 
 
 #==========================================================
-
+#students table
 c.execute("CREATE TABLE students (name TEXT, age INTEGER, id INTEGER)")
 
 with open("data/students.csv", 'r') as csvfile:
   reader = csv.DictReader(csvfile)
   for row in reader:
+    #put in values for the table: name, age, id
     command = "INSERT INTO students VALUES ('" + row["name"] + "', " + row["age"] + ", " + row["id"] + ")"
     c.execute(command)
 
