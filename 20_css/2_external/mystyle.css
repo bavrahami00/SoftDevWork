@@ -1,0 +1,19 @@
+html {
+  background-color: gray;
+}
+h1 {
+  background-color: lightgray;
+  text-align: center;
+  color: white;
+}
+.main {
+  column-count: 2;
+}
+.bullets {
+  color: white;
+}
+.end {
+  text-align: right;
+  background-color: darkslategray;
+  color: gray;
+}
