@@ -1,0 +1,11 @@
+.container {
+  text-align: center;
+  background-color: aquamarine;
+}
+.col-6 {
+  background-color: red;
+}
+#row2 {
+  background-color: darkslategray;
+  color: white;
+}
