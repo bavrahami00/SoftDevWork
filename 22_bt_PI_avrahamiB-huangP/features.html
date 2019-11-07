@@ -4,56 +4,318 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <!-- CSS page link -->
-    <link rel="stylesheet" type="text/css" href="style.css">
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <title>Bootstrap features</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <title>Bootstrap</title>
+    <style>
+      .carousel {
+        width: 100%;
+        height: 300px;
+        text-align: center;
+        background-color: gray;
+        font-size: 30px;
+      }
+      .container {
+        max-width: 1500px;
+        text-align: center;
+      }
+      body {
+        padding-left: 30px;
+      }
+      .info {
+        color: green;
+      }
+    </style>
   </head>
   <body>
-    <h1>Hello, world!</h1>
-    <br><br>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Team PI</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#card">Cards</a>
+              <a class="dropdown-item" href="#gridsystem">Grid</a>
+              <a class="dropdown-item" href="#tables">Tables</a>
+              <a class="dropdown-item" href="#textdisplay">Tags</a>
+              <a class="dropdown-item" href="#colors">Colors</a>
+              <a class="dropdown-item" href="#breadcrumb">Breadcrumbs</a>
+              <a class="dropdown-item" href="#carousel">Carousel</a>
+              <a class="dropdown-item" href="#collapse">Collapse</a>
+              <a class="dropdown-item" href="#jumbotron">Jumbotron</a>
+              <a class="dropdown-item" href="#form">Form</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#modal">Extra</a>
+            </div>
+          </li>
+          <li>
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <p>This is a navbar</p>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <h1>Key Features of Bootstrap</h1>
+    <br>
+    <h2>Bootstrap is a framework for building responsive, mobile-first sites. It
+      has many features that we will demonstrate below (and above).
+    </h2>
+    <br>
+    <p class="info">There are many ways of organizing information with Bootstrap.</p>
+    <h3 id="card">Card:</h3>
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">A card is a flexible and extensible content container</p>
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">List item 1</li>
+        <li class="list-group-item">List item 2</li>
+      </ul>
+    </div>
+    <div>
+    <br>
+    <br>
+    <h3 id="gridsystem">Grid System:</h3>
     <div class="container">
       <div class="row">
-        <div class="col">Row 1, Column 1</div>
-        <div class="col-6">Column 2 (wider)</div>
-        <div class="col-auto">Thinner</div>
+        <div class="col">
+            Containers, rows, and columns together can be used to create a grid system
+        </div>
+        <div class="col">
+            Columns are automatically divided equally like this.
+        </div>
+        <div class="col-6">
+            But don't have to be!
+        </div>
       </div>
-      <div class="row">
-        <div id="row2" class="col-5 offset-4">Row 2</div>
+      <div class="row"> 
+        <div class="col offset-2 border bg-light">
+            Borders can also be added to said columns
+        </div>
+        <div class="col">
+            There can be a max of 12 columns per row.
+        </div>
       </div>
     </div>
-    <br><br>
-
-    <p>To see the developer console, press <kbd>F12</kbd></p>
-    <br><br>
-
-    <button type="button" class="btn btn-primary">Notifications <span class="badge-light">1</span></button>
-    <br><br>
-
-    <div class="card">
-      <h3>Card Title</h3>
-      <p>This is an example of a card. It is simply a container that can hold other things.</p>
+    <br>
+    <p>Other tools available for use with grids are offsetting some columns to the right (as shown on the second row), changing the margins and gutters, and nesting rows inside each other.
+    <br>
+    <br>
+    <h3 id="tables">Tables:</h3>
+    <p>Tables are similar to grids. They cannot be as flexible about the placement and relative width of entries, but they automatically provide borders and headings, among other features.</p>
+    <table class="table table-hover table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Col1</th>
+          <th scope="col">Col2</th>
+          <th scope="col">Col3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Tables</td>
+          <td>can be</td>
+          <td>striped</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Tables</td>
+          <td>can also be</td>
+          <td>responsive</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td colspan="2">An entry can take up</td>
+          <td>multiple columns</td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <p class="info">Bootstrap is also capable of many different types of formatting, with both text...</p>
+    <h3 class="display-5" id="textdisplay">Text Display</h3>
+    <ul>
+      <li>the above text is a display heading</li>
+      <li class="lead">lead can be used to make a paragraph stand out</li>
+      <li>tag <mark>mark</mark> is used to highlight text</li>
+      <li>tag del is used for <del>deleted</del> text (strikethroughs)</li>
+      <li class="text-muted">class text-muted results in lighter text</li>
+      <li>tag small results in <small>fine print</small></li>
+      <li>tag abbr can be used to show text when you <abbr title="tada, more text appears">hover</abbr> over it</li>
+      <li>tag <kbd>kbd</kbd> is meant to show keyboard inputs</li>
+      <li>tag <code>&lt;code&gt;</code> is used for code snippets</li>
+    </ul>
+    <h3 id="colors">There are eight types of colors:</h3>
+    <button type="button" class="btn btn-primary">Primary</button>
+    <button type="button" class="btn btn-secondary">Secondary</button>
+    <button type="button" class="btn btn-success">Success</button>
+    <button type="button" class="btn btn-danger">Danger</button>
+    <button type="button" class="btn btn-warning">Warning</button>
+    <button type="button" class="btn btn-info">Info</button>
+    <button type="button" class="btn btn-light">Light</button>
+    <button type="button" class="btn btn-dark">Dark</button>
+    <br>
+    <br>
+    These colors can also be used for <button type="button" class="btn btn-primary">buttons</button>,
+    <span class="badge badge-secondary">badges</span> and
+    <div class="alert alert-primary" role="alert">
+      alerts!
+    </div>
+    <br>
+    <br>
+    <p class="info">... and features!</p>
+    <h3 id="breadcrumb">Breadcrumb:</h3>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Breadcrumb</a></li>
+        <li class="breadcrumb-item"><a href="#">can be used to</a></li>
+        <li class="breadcrumb-item active" aria-current="page">indicate the current page’s location within a navigational hierarchy</li>
+      </ol>
+    </nav>
+    <br>
+    <br>
+    <h3 id="carousel">Carousel:</h3>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="d-block w-100" src="..." alt="A carousel can take you">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="..." alt="from slide">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="..." alt="to slide.">
+        </div>
       </div>
-<!--      <button type="button" class="btn btn-primary" data-toggle="collpase" data-target="#collpaseExample">
-        Click on me
-      </button> -->
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-    Button with data-target
-  </button>
-<!--      <div class="collapse" id="collapseExample">
-        And this is what you get
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    <br>
+    <h3 id="collapse">Collapse:</h3>
+    <p>Collpase shows hidden text. This can be done in two different ways:</p>
+    <p>
+      <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+        Link with href
+      </a>
+      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        Button with data-target
+      </button>
+    </p>
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body">
+        Collpased text. Click either the link or button again to collapse this text.
       </div>
-    </div> -->
-<div class="collapse" id="collapseExample">
-  <div class="card card-body">
-    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-  </div>
-</div>
-    <br><br>
-
-    
+    </div>
+    <br>
+    <div class="jumbotron" id="jumbotron">
+      <h1 class="display-4" id="form">Form:</h1>
+      <p>This (the jumbotron, not the form) is for calling extra attention to featured content or information.</p>
+    </div>
+    <p>Bootstrap allows for multiple types of inputs in a form.</p>
+    <form>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">add-ons</span>
+        </div>
+        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Email address</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Example select</label>
+        <select class="form-control" id="exampleFormControlSelect1">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlSelect2">Example multiple select</label>
+        <select multiple class="form-control" id="exampleFormControlSelect2">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Example textarea</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <br>
+    <br>
+    <h3>You're finished!</h3>
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" id="modal">
+      But there's always more to learn
+    </button>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">So now you know</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            This, for example, is called a modal. They are used to add dialogs.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
   </body>
 </html>
