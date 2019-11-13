@@ -16,6 +16,13 @@ def root():
     data = json.loads(response)
     return render_template("mapapi.html", place=data['results'][0]['locations'][0]['street'], lat=data['results'][0]['locations'][0]['latLng']['lat'], long=data['results'][0]['locations'][0]['latLng']['lng'])
 
+@app.route("/trivia")
+def questions():
+    u = urllib.request.urlopen("https://opentdb.com/api.php?amount=10")
+    response = u.read()
+    data = json.loads(response)
+    return render_template("triviaapi.html", questions=data['results'])
+
 if __name__ == "__main__":
     app.debug = True
     app.run()

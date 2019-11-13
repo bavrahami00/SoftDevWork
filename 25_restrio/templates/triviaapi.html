@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}
+    Getting More REST: Trivia API
+{% endblock %}
+{% block body %}
+    {% for q in questions %}
+        <h5>{{q['category']}}</h5>
+        <h3>{{q['question']}}</h3>
+        <p>Correct answer: {{q['correct_answer']}}</p>
+        <br>
+        <p>Incorrect answers:</p>
+        {% for i in q['incorrect_answers'] %}
+           <p>{{i}}</p>
+        {% endfor %}
+        <br><br>
+    {% endfor %}
+{% endblock %}
