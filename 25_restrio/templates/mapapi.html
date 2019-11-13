@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>
-			Getting More REST: Geocoding API
-		</title>
-	</head>
-	<body>
-		<h1> {{place}} </h1>
-		<br>
-		Location:
-		<p>{{lat}}, {{long}}</p>  
-	</body>
-</html>
+{% extends "base.html" %}
+{% block title %}
+    Getting More REST: Geocoding API
+{% endblock %}
+{% block body %}
+   <h1> {{place}} </h1>
+   <br>
+   Location:
+   <p>{{lat}}, {{long}}</p>  
+{% endblock %}
