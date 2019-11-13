@@ -13,7 +13,7 @@ def root():
     u = urllib.request.urlopen("http://open.mapquestapi.com/geocoding/v1/address?key=KHiNxiOAxR7QXpKrSDHZ3sGXP65Ci4Mz&location=345+Chambers+St,New+York,NY,10282")
     response = u.read()
     data = json.loads(response)
-    return render_template("index.html", lat=data['lat'], long=data['lng'])
+    return render_template("imapapi.html", place=data['street'], lat=data['lat'], long=data['lng'])
 
 if __name__ == "__main__":
     app.debug = True
