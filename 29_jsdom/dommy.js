@@ -46,14 +46,20 @@ var addFib = function(e) {
   var list = document.getElementById("fiblist");
   //console.log(list);
   var item = document.createElement("li");
-  //item.innerHTML = fib(list.childNodes.length-1);
-  item.innerHTML = addFib2;
+  if (list.childNodes.length < 3) {
+    item.innerHTML = fib(list.childNodes.length-1);
+  }
+  else {
+    item.innerHTML = addFib2();
+  }
   list.append(item);
 }
 
 var addFib2 = function(e) {
-  console.log(e);
-
+  var list = document.getElementById("fiblist");
+  var len = list.childNodes.length;
+  //console.log(list.childNodes[len-2]);
+  return Number(list.childNodes[len-2].innerHTML)+Number(list.childNodes[len-1].innerHTML);
 }
 
 var fb = document.getElementById("fb");
