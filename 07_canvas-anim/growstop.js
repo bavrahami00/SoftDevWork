@@ -6,16 +6,17 @@ var ctx = c.getContext("2d");
 
 var r = 20;
 var grow = true;
+var id = 0;
 
 var draw = function(e) {
   //console.log(c);
-  ctx.clearRect(0,0,c.height,c.width);
+  ctx.clearRect(0,0,c.width,c.height);
   ctx.beginPath();
-  ctx.arc(c.height/2, c.width/2, r, 0, 2 * Math.PI, true);
+  ctx.arc(c.width/2, c.height/2, r, 0, 2 * Math.PI, true);
   ctx.fill();
   if (grow) {
     r += 1;
-    if (r == c.height/2) {
+    if (r == Math.min(c.height,c.width)/2) {
       grow = false;
     }
   }
@@ -25,7 +26,20 @@ var draw = function(e) {
       grow = true;
     }
   }
+  id = window.requestAnimationFrame(draw);
+  //console.log(id);
+}
+
+var go = document.getElementById("anim");
+var begin = function(e) {
   window.requestAnimationFrame(draw);
 }
 
-window.requestAnimationFrame(draw);
+go.addEventListener("click",begin);
+
+var stop = document.getElementById("stop");
+var end = function(e) {
+  window.cancelAnimationFrame(id);
+}
+
+stop.addEventListener("click",end);
