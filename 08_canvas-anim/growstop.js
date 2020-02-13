@@ -5,7 +5,7 @@ var c = document.getElementById("slate");
 var ctx = c.getContext("2d");
 
 var logo = new Image();
-logo.src = "logo_dvd.jpg";
+logo.src = "https://raw.githubusercontent.com/stuy-softdev/notes-and-code19-20/master/smpl/200214f_js-canvas-anim/logo_dvd.jpg?token=AKILQI5PXMXRQUU7A3MIV3C6J4EPM";
 
 var r = 20;
 var grow = true;
@@ -36,16 +36,18 @@ var draw = function(e) {
   //console.log(id);
 }
 
-var xpos = Math.floor(c.width * Math.random());
-var ypos = Math.floor(c.height * Math.random());
+//If the dvd is in the last 60, it is partially off the screen
+var xpos = Math.floor((c.width-60) * Math.random());
+var ypos = Math.floor((c.height-30) * Math.random());
 var right = true;
 var down = true;
+var dvid = 0;
 
-var bounce = new function(e) {
-  ctx.drawImage(xpos,ypos);
+var bounce = function(e) {
+  ctx.drawImage(logo,xpos,ypos,60,30);
   if (right) {
     xpos++;
-    if (xpos == c.width) {
+    if (xpos+60 == c.width) {
       right = false;
     }
   }
@@ -57,7 +59,7 @@ var bounce = new function(e) {
   }
   if (down) {
     ypos++;
-    if (ypos == c.height) {
+    if (ypos+30 == c.height) {
       down = false;
     }
   }
@@ -67,20 +69,34 @@ var bounce = new function(e) {
       down = true;
     }
   }
+  dvid = requestAnimationFrame(bounce);
 }
 
 var go = document.getElementById("anim");
 var begin = function(e) {
-  window.requestAnimationFrame(draw);
+  end();
   go.removeEventListener("click",begin);
+  draw();
 }
 
 go.addEventListener("click",begin);
 
+var con = document.getElementById("dvd");
+var mid = function(e) {
+  end();
+  ctx.clearRect(0,0,c.width,c.height);
+  con.removeEventListener("click",mid);
+  bounce();
+}
+
+con.addEventListener("click",mid);
+
 var stop = document.getElementById("stop");
 var end = function(e) {
   window.cancelAnimationFrame(id);
+  window.cancelAnimationFrame(dvid);
   go.addEventListener("click",begin);
+  con.addEventListener("click",mid);
 }
 
 stop.addEventListener("click",end);
