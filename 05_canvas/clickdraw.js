@@ -16,7 +16,7 @@ var offTop = c.offsetTop;
 var draw = function(e) {
     if (currentMode.innerHTML == "Draw a Box") {
         ctx.fillStyle = "#FF00FF";
-        ctx.fillRect(e.clientX-offLeft, e.clientY-offTop, 33, 33);
+        ctx.fillRect(e.offsetX, e.offsetY, 33, 33);
     }
     else {
         ctx.fillStyle = "#8B008B";
@@ -54,5 +54,3 @@ var clear = function(e) {
 // event listener for clearing canvas
 var clearButton = document.getElementById("clear");
 clearButton.addEventListener("click", clear);
-
-

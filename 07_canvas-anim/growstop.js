@@ -12,7 +12,9 @@ var draw = function(e) {
   //console.log(c);
   ctx.clearRect(0,0,c.width,c.height);
   ctx.beginPath();
+  //draws a circle, centered at (c.width/2,c.height/2) and has radius r. Starts at angle 0, ends at 2pi, goes counterclockwise
   ctx.arc(c.width/2, c.height/2, r, 0, 2 * Math.PI, true);
+  //Fills in the interior of the circle
   ctx.fill();
   if (grow) {
     r += 1;
@@ -26,6 +28,7 @@ var draw = function(e) {
       grow = true;
     }
   }
+  //calls draw (again) when the canvas is "repainted"
   id = window.requestAnimationFrame(draw);
   //console.log(id);
 }

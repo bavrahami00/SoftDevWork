@@ -4,28 +4,24 @@ var c = document.getElementById("slate");
 // instantiate a CanvasRenderingContext2D object
 var ctx = c.getContext("2d");
 
-// setting Mona Lisa as canvas for ART
-var imgPath = "monalisa.jpg";
-var imgObj = new Image();
-imgObj.src = imgPath;
-imgObj.onload = function() {
-    ctx.drawImage(imgObj, 65, 0);
-}
-console.log("Masterpiece completed.")
-
 // current drawing mode
 var currentMode = document.getElementById("mode");
+
+// get offsets: offLeft is the left offset (how far away the canvas is
+// from the left side of the screen) and offTop is the top offset
+var offLeft = c.offsetLeft;
+var offTop = c.offsetTop;
 
 // draw function to draw box or dot depending on mode
 var draw = function(e) {
     if (currentMode.innerHTML == "Draw a Box") {
         ctx.fillStyle = "#FF00FF";
-        ctx.fillRect(e.clientX, e.clientY, 33, 33);
+        ctx.fillRect(e.clientX-offLeft, e.clientY-offTop, 33, 33);
     }
     else {
         ctx.fillStyle = "#8B008B";
-        ctx.beginPath();
-        ctx.arc(e.clientX, e.clientY, 20, 0, 2 * Math.PI, true);
+        ctx.beginPath(); // allows the drawing to start
+        ctx.arc(e.clientX-offLeft, e.clientY-offTop, 20, 0, 2 * Math.PI, true);
         ctx.fill();
     }
 }
@@ -58,3 +54,5 @@ var clear = function(e) {
 // event listener for clearing canvas
 var clearButton = document.getElementById("clear");
 clearButton.addEventListener("click", clear);
+
+
