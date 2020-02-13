@@ -33,6 +33,7 @@ var draw = function(e) {
 var go = document.getElementById("anim");
 var begin = function(e) {
   window.requestAnimationFrame(draw);
+  go.removeEventListener("click",begin);
 }
 
 go.addEventListener("click",begin);
@@ -40,6 +41,7 @@ go.addEventListener("click",begin);
 var stop = document.getElementById("stop");
 var end = function(e) {
   window.cancelAnimationFrame(id);
+  go.addEventListener("click",begin);
 }
 
 stop.addEventListener("click",end);
