@@ -36,9 +36,8 @@ var draw = function(e) {
   //console.log(id);
 }
 
-//If the dvd is in the last 60, it is partially off the screen
-var xpos = Math.floor((c.width-60) * Math.random());
-var ypos = Math.floor((c.height-30) * Math.random());
+var xpos;
+var ypos;
 var right = true;
 var down = true;
 var dvid = 0;
@@ -89,7 +88,15 @@ var mid = function(e) {
   bounce();
 }
 
+//If the dvd is in the last 60, it is partially off the screen
+var reloc = function(e) {
+  ctx.clearRect(0,0,c.width,c.height);
+  xpos = Math.floor((c.width-60) * Math.random());
+  ypos = Math.floor((c.height-30) * Math.random());
+}
+
 con.addEventListener("click",mid);
+con.addEventListener("click",reloc);
 
 var stop = document.getElementById("stop");
 var end = function(e) {
