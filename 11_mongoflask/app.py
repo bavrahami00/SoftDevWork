@@ -7,15 +7,11 @@ app = Flask(__name__)
 @app.route("/")
 def hello_world():
     print(__name__)
-    return "hablo queso!"
+    return redirect(url_for("home"))
 
-@app.route("/index")
-def ind():
-    return "Main page"
-
-@app.route("/page")
-def dummy():
-    return "Lorem ipsum doloret"
+@app.route("/home")
+def home():
+    return render_template("main.html")
 
 if __name__ == "__main__":
     app.debug = True
