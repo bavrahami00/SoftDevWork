@@ -1,4 +1,4 @@
-# Lauren Pehlivanian, Benjamin Avrahami
+# Benjamin Avrahami
 # SoftDev pd9
 # K10 -- Import/Export Bank
 # 2020-03-04
@@ -69,6 +69,9 @@ def drug_list():
     for d in dlist:
         print("\t",d,": ",ddict[d])
 
+def all_drugs():
+    dlist = ["heroin","cocaine","fentanyl","fentanylanalogue","oxycodone","oxymorphone","ethanol","hydrocodone","benzodiazepine","methadone","amphet","tramad","morphine_notheroin","hydromorphone","other"]
+    return dlist
 
 # prints demographic information about users of a collection of drugs
 # drugs is an array of drug names
@@ -82,10 +85,7 @@ def getUsersInfo(drugs):
     #create dictionary based on drugs in array
     drug_dict = {}
     for drug in drugs:
-        if drug == "cocaine":
-            drug_dict[drug] = None
-        else:
-            drug_dict[drug] = "Y"
+        drug_dict[drug] = "Y"
     #print(drug_dict)
     #find all people who match drugs dictionary
     addicts = col.find(drug_dict)
@@ -117,11 +117,51 @@ def getUsersInfo(drugs):
         print("\tNo data was found for the drugs you entered.")
 
 
-setup()
-drug_list()
-drugs = ["fentanyl","heroin"]
-getUsersInfo(drugs)
-#drugs.append("oxycodone")
-# drugs.append("oxymorphone")
-drugs.append("ethanol")
-getUsersInfo(drugs)
+def d_string(drugs):
+    drug_string = ""
+    for drug in drugs:
+        drug_string = drug_string + drug
+        drug_string = drug_string +", "
+    drug_string = drug_string[:-2]
+    return drug_string
+
+def gender_deaths(drugs):
+    drug_dict = {}
+    for drug in drugs:
+        drug_dict[drug] = "Y"
+    addicts = col.find(drug_dict)
+    women = 0
+    men = 0
+    other = 0
+    for addict in addicts:
+        if addict['sex'] == "Female":
+            women = women + 1
+        elif addict['sex'] == "Male":
+            men = men + 1
+        else:
+            other = other + 1
+    l = {}
+    l["men"] = men
+    l["women"] = women
+    l["other"] = other
+    return l
+
+def age_deaths(drugs):
+    drug_dict = {}
+    for drug in drugs:
+        drug_dict[drug] = "Y"
+    addicts = col.find(drug_dict)
+    ages = get_age_dict()
+    for addict in addicts:
+        ages[addict['age']] = ages[addict['age']] + 1
+    return ages
+
+def race_deaths(drugs):
+    drug_dict = {}
+    for drug in drugs:
+        drug_dict[drug] = "Y"
+    addicts = col.find(drug_dict)
+    races = get_race_dict()
+    for addict in addicts:
+        races[addict['race']] = races[addict['race']] + 1
+    return races
