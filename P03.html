@@ -1,33 +1,112 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8"/>
-    </style>
-    <title>TEDx Stuyvesant - LaTeX</title>
-  </head>
-  <body>
-    <h1>A Quick Guide to LaTeX</h1>
-    <br>
-    <h3>What is LaTeX?</h3>
-    <p>It is a text formatter - something that takes in plaintext and spits out a pdf formatted with
-      the commands that <b>you</b> give it. What commands? We'll get to that in a minute, but
-      they're there to make life easier. LaTeX is WYSIWYM - What You See Is What You Mean - so you don't
-       have to worry about the proper spacing or font or line breaks (if you give it the proper commands); it'll take of that for you.</p>
-    <p> Although revolutionary when first produced, in 1984, word processors such as Google Docs and Microsoft Word
-      have caught up to it in the intervening years, so that it is no longer quite as useful as it once was, but there is one place where
-      it is still an industry standard: mathematics. Since math has so many symbols and subscripts and superscripts, LaTeX is still used to write
-      almost all papers. On arxiv.org, a scholarly archive, roughly 97% of all mathematical papers were written with LaTeX. And in addition,
-      it has that lovely font, so you can use it even if it provides no other upgrade.</p>
-    <br>
-    <h3>How to install LaTeX</h3>
-    <p>On Linux, this can be done directly from the terminal: sudo apt install texlive</p>
-    <p>On Mac or Windows, this can be done by downloading the MiKTeX package.</p>
-    <br>
-    <p>There are also specialized editors that can be used for LaTeX such as TeXMaker or TeXStudio, but since LaTeX takes in plaintext,
-      as previously mentioned, it can be done in ordinary text editors such as nano.</p>
-    <p>All LaTeX articles have the ending .tex, and then are converted to pdf either by a button on an editor, or by the commmand pdflatex &ltfilename&gt,
-      which then can be opened with your favorite pdf viewer.</p>
-    <br>
-    <h3>So how does LateX work?</h3>
-  </body>
+  	<head>
+    	<meta charset="utf-8"/>
+    	<style>
+    		h2 {
+    			text-align: center;
+    		}
+    		table {
+    			border-collapse: collapse;
+    			width: 100%;
+    		}
+    		td,th {
+    			border: 1.2px solid;
+    		}
+    	</style>
+    	<title>TEDx Stuyvesant - LaTeX</title>
+  	</head>
+  	<body>
+    	<h1>A Quick Guide to LaTeX</h1>
+    	<br>
+    	<h3>What is LaTeX?</h3>
+    	<p>It is a text formatter - something that takes in plaintext and spits out a pdf formatted with
+    	the commands that <b>you</b> give it. What commands? We'll get to that in a minute, but
+    	they're there to make life easier. LaTeX is WYSIWYM - What You See Is What You Mean - so you don't
+    	have to worry about the proper spacing or font or line breaks (if you give it the proper commands); it'll take of that for you.</p>
+    	<p>Although revolutionary when first produced, in 1984, word processors such as Google Docs and Microsoft Word
+     	have caught up to it in the intervening years, so that it is no longer quite as useful as it once was, but there is one place where
+      	it is still an industry standard: mathematics. Since math has so many symbols and subscripts and superscripts, LaTeX is still used to write
+    	almost all papers. On arxiv.org, a scholarly archive, roughly 97% of all mathematical papers were written with LaTeX. And in addition,
+    	it has that lovely font, so you can use it even if it provides no other upgrade.</p>
+    	<br>
+    	<h3>How to install LaTeX</h3>
+    	<p>On Linux, this can be done directly from the terminal: sudo apt install texlive</p>
+    	<p>On Mac or Windows, this can be done by downloading the MiKTeX package.</p>
+    	<br>
+   		<p>There are also specialized editors that can be used for LaTeX such as TeXMaker or TeXStudio, but since LaTeX takes in plaintext,
+      	as previously mentioned, it can be done in ordinary text editors such as nano.</p>
+  		<p>All LaTeX articles have the ending .tex, and then are converted to pdf either by a button on an editor, or by the commmand pdflatex &ltfilename&gt,
+    	which then can be opened with your favorite pdf viewer.</p>
+    	<br>
+    	<h3>So how does LateX work?</h3>
+    	<p>Any piece of code is either a piece of text that you want in the pdf or a command.</p>
+    	<p>Commands are of the form \&ltcommand&gt[&ltoptional parameters&gt]{&ltrequired parameters&gt} (with a very few exceptions), and they do one of two things:
+    	either they format the document in some way or they insert a special character not found on the keyboard.</p>
+    	<br>
+    	<p>LaTeX has two modes - normal mode and math mode. Normal mode is what you expect; what you write is put on the pdf, but it largely ignores whitespace, so
+    	you have to use a command to put multiple spaces between words or to force a new line. To create a new paragraph, leave an empty line in the code.
+    	In math mode, LaTeX assumes that everything that is not a command is a variable, and gives the text a "math font" so it looks professional.</p>
+    	<p>There are also environments - commands of the form \begin{&ltenvironment&gt} ... \end{&ltenvironment&gt} which format the text inside it.
+    	<br>
+    	<br>
+    	<h2>A List of LaTeX Commands</h2>
+    	<table>
+    		<tr>
+    			<th>Command</th>
+    			<th>Mode</th>
+    			<th>Effect/Notes</th>
+    		</tr>
+    		<tr>
+    			<td>\documentclass{&ltdocument type&gt}</td>
+    			<td>Preamble (before document)</td>
+    			<td><b>Required.</b> Must be the first line of any document. The most common type of document is article.</td>
+    		</tr>
+    		<tr>
+    			<td>\usepackage{&ltpackagename&gt}</td>
+    			<td>Preamble</td>
+    			<td>If you want to use commands that are in some package that has not been installed yet, use this command.</td>
+    		</tr>
+    		<tr>
+    			<td>\title{&lttitle&gt}, \author{&ltauthor&gt}, \date{&ltdate&gt}</td>
+    			<td>Preamble</td>
+    			<td>This will make the title/author/date of the paper being written be featured prominently on the page (once \maketitle is written).</td>
+    		</tr>
+    		<tr>
+				<td>\begin{document} ... \end{document}</td>
+				<td>Environment</td>
+				<td><b>Required.</b> Everything that has to be written in the document has to be written inside here.</td>
+			</tr>
+			<tr>
+				<td>%</td>
+				<td>All</td>
+				<td>Creates a comment - everything else written on the line is ignored.</td>
+			</tr>
+			<tr>
+				<td>\maketitle</td>
+				<td>Normal</td>
+				<td>Makes the title according to the title/author date given</td>
+			</tr>
+			<tr>
+				<td>\section{&ltsection name&gt}, \subsection{&ltsection name&gt}</td>
+				<td>Normal</td>
+				<td>Creates a (numbered) section/subsection in the pdf, which is large and bolded.</td>
+			</tr>
+			<tr>
+				<td>\underline{&lttext&gt}</td>
+				<td>Normal</td>
+				<td>Underlines the text.</td>
+			</tr>
+			<tr>
+				<td>\emph{&lttext&gt}</td>
+				<td>Normal</td>
+				<td>Italicizes (or deitalicizes, if within another \emph) the text.</td>
+			</tr>
+			<tr>
+				<td>\begin{flushleft} ... \end{flushleft}, \begin{center} ... \end{center}, \begin{flushright} ... \end{flushright}</td>
+				<td>Environment</td>
+				<td>Aligns the text to the left, right, or center.</td>
+			</tr>
+    	</table>
+  	</body>
 </html>
