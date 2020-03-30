@@ -47,7 +47,7 @@
     	<p>LaTeX has two modes - normal mode and math mode. Normal mode is what you expect; what you write is put on the pdf, but it largely ignores whitespace, so
     	you have to use a command to put multiple spaces between words or to force a new line. To create a new paragraph, leave an empty line in the code.
     	In math mode, LaTeX assumes that everything that is not a command is a variable, and gives the text a "math font" so it looks professional.</p>
-    	<p>There are also environments - commands of the form \begin{&ltenvironment&gt} ... \end{&ltenvironment&gt} which format the text inside it.
+    	<p>There are also environments - commands of the form \begin{&ltenvironment&gt} ... \end{&ltenvironment&gt} which format the text inside it in some way.</p>
     	<br>
     	<br>
     	<h2>A List of LaTeX Commands</h2>
@@ -83,6 +83,15 @@
 				<td>Creates a comment - everything else written on the line is ignored.</td>
 			</tr>
 			<tr>
+				<td>\\ or \newline</td>
+				<td>Normal</td>
+				<td>Forces a new line in the pdf.</td>
+			</tr>
+			<tr>
+				<td>\newpage</td>
+				<td>Normal</td>
+				<td>Forces a new page in the pdf.</td>
+			<tr>
 				<td>\maketitle</td>
 				<td>Normal</td>
 				<td>Makes the title according to the title/author date given</td>
@@ -103,10 +112,68 @@
 				<td>Italicizes (or deitalicizes, if within another \emph) the text.</td>
 			</tr>
 			<tr>
+				<td>\footnote{&lttext&gt}</td>
+				<td>Normal</td>
+				<td>Creates a footnote with the specified text</td>
+			</tr>
+			<tr>
 				<td>\begin{flushleft} ... \end{flushleft}, \begin{center} ... \end{center}, \begin{flushright} ... \end{flushright}</td>
 				<td>Environment</td>
 				<td>Aligns the text to the left, right, or center.</td>
 			</tr>
+			<tr>
+				<td>\begin{itemize} ... \end{itemize}, \begin{enumerate} ... \end{enumerate}</td>
+				<td>Environment</td>
+				<td>Creates a bulleted (itemize) or numbered (enumerate) list. For each new item in the list, put \item before it.</td>
+			</tr>
+			<tr>
+				<td>\label{&ltname&gt}</td>
+				<td>Normal</td>
+				<td>Creates a reference (like id in HTML) to an object.</td>
+			</tr>
+			<tr>
+				<td>\ref{&ltname&gt}</td>
+				<td>Normal</td>
+				<td>Creates a marker in the page that refers to the thing that has the label &ltname&gt. If nothing has that label, an error is thrown.</td>
+			</tr>
+			<tr>
+				<td>$ ... $</td>
+				<td>Environment</td>
+				<td>Creates an equation inside of a paragraph, where there is no line break. Everything inside this enviornment is in math mode.</td>
+			</tr>
+			<tr>
+				<td>\begin{equation} ... \end{equation}</td>
+				<td>Environment</td>
+				<td>Creates a prominently featured equation. The equation gets its own line, and is numbered. (To get rid of the number, but keep it as a new line, do \begin{equation*} ... \end{equation*}). Everyhting inside this environment is in math mode.</td>
+			</tr>
+			<tr>
+				<td>^, _</td>
+				<td>Math</td>
+				<td>Makes the character that appears after it a superscript(^) or subscript(_). This works equally well for exponents as writing above and below a sigma.</td>
+			</tr>
+			<tr>
+				<td>\,, \quad, \qquad</td>
+				<td>Math</td>
+				<td>Forces a space (,), small indent (quad), or large indent (qquad) in the equation.</td>
+			<tr>
+				<td>\frac{&ltnumerator&gt}{&ltdenominator&gt}</td>
+				<td>Math</td>
+				<td>Creates a "vertical" fraction. The numerator is the first argument, the denominator is the second.</td>
+			</tr>
+			<tr>
+				<td>\sum, \prod</td>
+				<td>Math</td>
+				<td>Creates the shorthand notation for sums (sigma) and products (pi).</td>
+			</tr>
+			<tr>
+				<td>\int</td>
+				<td>Math</td>
+				<td>Creates an integral sign.</td>
+			</tr>
     	</table>
+    	<br>
+    	<br>
+    	<p> If you actually want a good LaTeX guide, go <a href="https://www.latex-tutorial.com/">here</a> or <a href="https://tobi.oetiker.ch/lshort/lshort.pdf">here</a>.</p>
+    	<p>But if not, go explore!</p>
   	</body>
 </html>
