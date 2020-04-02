@@ -1,0 +1,10 @@
+alert(text) creates a popup with that text in it
+
+Prediction for 2: 3 popups will appear when clicking on the table, "zooming out$
+
+Prediction for 3: Same as 2, even when line is uncommented?!
+Actual Result: stopPropagation prevents any further popups from that action, bu$
+Side note - having true as a third parameter in an eventlistener gives it prior$
+
+Preidction for 4: Same as 2
+Actual result: Popups appear in reverse order
