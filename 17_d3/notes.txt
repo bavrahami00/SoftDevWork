@@ -1,0 +1,25 @@
+Let's Make a Bar Chart:
+<selection>.node() returns the first element in the selection, if any
+
+d => `${d * 10}px` - This is a function that takes in d, and returns 10d pixels.
+Are the brackets like parentheses, to guide order of operations?
+What are the ` and $ doing? Best guess - `` creates a quote, like '' or "", because CSS needs the styling in quotes, and the $ is to break out of it and make the next character an actual number, not a quoted number
+
+What is the difference between .create(<tag>) and .append(<tag>)?
+
+x = f(n) appears necessary(?) before making x some mathematical function like scaleLinear()
+x(n) returns the "y-value" at some input n
+
+
+By Example:
+Does the with clause not work with normal JavaScript? What should be used then instead?
+
+The order seems messed up in the importing for the histogram. It appears as 'import {chart as <chartname>} with {<dataname> as data} from "@d3/histogram"'
+
+In the with clause, there can be further specifications other than the data, if previously specified.
+The clause would then be 'with {<dataname> as data,<other specifications>}
+However, the other specifications must be acceptable and previously instantiated variables, such as height or width.
+
+I don't think margin and width were used at all before the import statement in chart3, so how can they be used?
+How do you know what to call in the first bracketed statement rather than the second, if you can use both?
+Does the order of the specifications matter?
