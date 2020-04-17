@@ -10,7 +10,7 @@ def ops():
 		reader = csv.reader(file,delimiter=',')
 		ans = []
 		states = {}
-		state = "Alaska"
+		state = "Alabama"
 		scores = {}
 		for row in reader:
 			if row[0] != "Year":
@@ -30,7 +30,7 @@ def ops():
 @app.route("/")
 def hello_world():
 	states = ops()
-	return render_template("home.html",scores=states)
+	return render_template("home.html",scores=states,states=list(states.keys()))
 
 
 if __name__ == "__main__":

@@ -2,13 +2,21 @@
 <html>
 	<head>
 		<meta charset="utf-8"/>
-		<title>Temperature Over Time</title>
+		<title>State SAT Scores</title>
 	</head>
 	<body>
-		<button type="button">Render</button>
-		<button type="button">Transition</button>
+		<!--<svg id="svg" width="1000" height="500"></svg>-->
+		<div class="chart"></div>
+		<br>
+
+		<button type="button" id="rend">Render</button>
+		<button type="button" id="tran">Transition</button>
 		
-		<script src="charts.js"></script>
-		<script src="http://d3js.org/d3.v5.min.js" charset="utf-8"></script>
+		<script src="http://d3js.org/d3.v5.min.js"></script>
+  		<script type="text/javascript">
+    		var scores = {{ scores|tojson }}
+    		var states = {{ states|tojson }}
+  		</script>
+  		<script src="static/charts.js"></script>
 	</body>
 </html>
