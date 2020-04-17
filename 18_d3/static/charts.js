@@ -1,10 +1,13 @@
 var start = document.getElementById("rend");
 var move = document.getElementById("tran");
-var chart = document.getElementsByClassName("chart")
+var chart = document.getElementsByTagName("svg");
 
 var curr = 0;
 
-var graph = d3.select(".chart");
+
+var width = 1000;
+
+
 var render = function(e) {
 	var data = states[curr];
 	var arr = [];
@@ -12,12 +15,13 @@ var render = function(e) {
 	for (var k in dict) {
 		arr.push(dict[k]);
 	}
-	var x = d3.scaleLinear().domain([0,d3.max(arr)]).range([0,1000]);
-	var end = graph.selectAll("div").data(arr).join("div");
-	end.text(d => d);
-	end.style("width", d => `${x(d)}px`);
-	end.style("background","blue");
-	end.style("text-align","right");
+	var x = d3.scaleLinear().domain([0,d3.max(arr)]).range([0,width]);
+	var y = d3.scaleBand().domain(d3.range(arr.length)).range([0,20 * arr.length]);
+	var graph = d3.select("svg").attr("width", width).attr("height", y.range()[1]).attr("font-family", "sans-serif").attr("font-size", "10").attr("text-anchor", "end");
+	var end = graph.selectAll("g").data(arr).join("g").attr("transform", (d,i) =>  `translate(0,${y(i)})`);
+	end.append("rect").attr("fill","blue").attr("width",x).attr("height",y.bandwidth()-1);
+	end.append("text").attr("fill","white").attr("x", d => x(d) - 3).attr("y", y.bandwidth() / 2).attr("dy", "0.35em").text(d => d);
+	//end.style("text-align","right");
 	curr = curr + 1;
 }
 
