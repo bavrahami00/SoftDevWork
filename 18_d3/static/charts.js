@@ -1,6 +1,7 @@
 var start = document.getElementById("rend");
 var move = document.getElementById("tran");
 var chart = document.getElementsByTagName("svg");
+var title = document.getElementById("state");
 
 var curr = 0;
 
@@ -22,6 +23,7 @@ var render = function(e) {
 	end.append("rect").attr("fill","blue").attr("width",x).attr("height",y.bandwidth()-1); // Sets up each bar of the bar chart (gives it its color, height, and width)
 	end.append("text").attr("fill","white").attr("x", d => x(d) - 3).attr("y", y.bandwidth() / 2).attr("dy", "0.35em").text(d => d); // Places each piece of text in the right location
 	curr = curr + 1;
+        title.innerHTML = data;
 }
 
 var rend = function(e) {
