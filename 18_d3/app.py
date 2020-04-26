@@ -1,3 +1,8 @@
+# Benjamin Avrahami
+# SoftDev Pd 9
+# K18 - Come Up For Air
+# 2020-04-22
+
 import csv
 
 from flask import Flask
@@ -6,6 +11,10 @@ from flask import url_for
 app = Flask(__name__)
 
 def ops():
+        # Parses the csv file (which has too much information) and returns
+        # a {{}}. The keys of the outer dictionary are each state, the keys of
+        # the inner dictionary is the year, and the value is the average SAT
+        # score for students in the state in that year
 	with open('school_scores.csv') as file:
 		reader = csv.reader(file,delimiter=',')
 		ans = []
